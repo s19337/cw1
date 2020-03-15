@@ -1,4 +1,6 @@
-﻿using System;
+//Zadanie 2 rozwiązanie
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
