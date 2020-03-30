@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\APBD31\\APBD31\\APBD31.csproj": {}
+    "C:\\Users\\User\\Desktop\\ABPD+proj\\APBD31\\APBD31\\APBD31.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\APBD31\\APBD31\\APBD31.csproj": {
+    "C:\\Users\\User\\Desktop\\ABPD+proj\\APBD31\\APBD31\\APBD31.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\APBD31\\APBD31\\APBD31.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ABPD+proj\\APBD31\\APBD31\\APBD31.csproj",
         "projectName": "APBD31",
-        "projectPath": "C:\\Users\\User\\Desktop\\APBD31\\APBD31\\APBD31.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\ABPD+proj\\APBD31\\APBD31\\APBD31.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\APBD31\\APBD31\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ABPD+proj\\APBD31\\APBD31\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -44,6 +44,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
             }
           },
           "imports": [
