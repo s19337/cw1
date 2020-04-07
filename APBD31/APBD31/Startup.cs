@@ -1,4 +1,5 @@
 using APBD31.DAL;
+using APBD31.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,7 @@ namespace APBD31
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IDbService, MockDbService>();
+            services.AddTransient<IStudentsDbService, SqlServerDbService>();
             services.AddControllers();
         }
 
@@ -31,7 +32,7 @@ namespace APBD31
           //      app.UseDeveloperExceptionPage();
           //  }
 
-           // app.UseDeveloperExceptionPage();
+           app.UseDeveloperExceptionPage();
            // app.UseHttpsRedirection();
 
             app.UseRouting();

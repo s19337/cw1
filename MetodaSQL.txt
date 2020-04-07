@@ -1,0 +1,36 @@
+alter procedure PromoteStudents @Studies VARCHAR(100), @Semester INT
+AS
+
+BEGIN 
+		DECLARE @IdStudies INT;
+		select  @IdStudies = IdStudy FROM Studies WHERE Name=@Studies;
+
+		IF @IdStudies IS NULL
+		BEGIN
+				RAISERROR ('Attempt to insert null value',16,1)
+		END
+
+		DECLARE @IdEnrollmentOLD INT;
+		SELECT @IdEnrollmentOLD=IdEnrollment FROM Enrollment WHERE IdStudy=@IdStudies and Semester=@Semester;
+
+		IF @IdEnrollmentOLD IS NULL
+		BEGIN
+				RAISERROR ('Attempt to insert null value',16,1)
+		END
+
+		DECLARE @IdEnrollment INT;
+		SELECT @IdEnrollment=IdEnrollment FROM Enrollment WHERE IdStudy=@IdStudies and Semester=@Semester+1;
+
+		IF @IdEnrollment IS NULL
+		BEGIN
+		         --DECLARE @NewId INT;
+				 select @IdEnrollment=MAX(IdEnrollment) FROM Enrollment;
+
+				 INSERT INTO Enrollment(IdEnrollment, Semester, IdStudy, StartDate) values
+										(@IdEnrollment+1, @Semester+1, @IdStudies, GETDATE())
+		END
+
+		UPDATE Student
+		SET IdEnrollment=@IdEnrollment+1 where IdEnrollment=@IdEnrollmentOLD
+
+END
