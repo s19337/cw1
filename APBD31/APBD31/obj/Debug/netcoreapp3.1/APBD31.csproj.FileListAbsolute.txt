@@ -190,5 +190,10 @@ C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.MvcApplicationPartsAssemblyInfo.cache

@@ -1,5 +1,6 @@
 ﻿using APBD31.DTOs.Requests;
 using APBD31.DTOs.Responses;
+using APBD31.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Data.SqlClient;
@@ -9,6 +10,30 @@ namespace APBD31.Services
     public class SqlServerDbService : IStudentsDbService
     {
         private const string ConString = "Data Source=db-mssql;Initial Catalog=s19337;Integrated Security=True";
+
+        public Boolean IsStudentExist(string index)
+        {
+            using (var con = new SqlConnection(ConString))
+            using (var com = new SqlCommand())
+            {
+                com.Connection = con;
+                con.Open();
+
+                com.CommandText = "select * from student where IndexNumber=@index";
+                com.Parameters.AddWithValue("index", index);
+
+
+                var dr = com.ExecuteReader();
+                if (!dr.Read())
+                {
+                    return false;
+                }
+                else return true;
+
+            }
+        }
+
+
         public EnrollStudentResponse EnrollStudent(EnrollStudentRequest request)
         {
             using (var con = new SqlConnection(ConString))
@@ -113,7 +138,6 @@ namespace APBD31.Services
             }
             return null;
         }
-
 
         public EnrollStudentResponse PromoteStudent(int semester, string studies)
         {

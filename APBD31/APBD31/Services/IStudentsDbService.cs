@@ -1,5 +1,6 @@
 ﻿using APBD31.DTOs.Requests;
 using APBD31.DTOs.Responses;
+using APBD31.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace APBD31.Services
 {
     public interface IStudentsDbService
     {
+        Boolean IsStudentExist(String index);
         EnrollStudentResponse EnrollStudent(EnrollStudentRequest request);
         EnrollStudentResponse PromoteStudent(int semester, string studies);
 
