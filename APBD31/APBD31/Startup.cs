@@ -1,13 +1,16 @@
 using APBD31.DAL;
 using APBD31.Middlewares;
 using APBD31.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace APBD31
 {
@@ -23,6 +26,19 @@ namespace APBD31
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidIssuer = "Gakko",
+                            ValidAudience = "Students",
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))
+                        };
+                    });
             services.AddTransient<IStudentsDbService, SqlServerDbService>();
             services.AddControllers();
 
@@ -31,21 +47,16 @@ namespace APBD31
               config.SwaggerDoc( "v1", new OpenApiInfo {Title="Studemts app API", Version="v1" }));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IStudentsDbService service)
         {
-          /*  if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }*/
-
             app.UseSwagger();
             app.UseSwaggerUI( config =>
             {
                 config.SwaggerEndpoint("/swagger/v1/swagger.json", "Studemts api API");
             } );
 
-            app.Use(async(context, next) =>
+            
+          /*  app.Use(async(context, next) =>
             {
 
                 if (!context.Request.Headers.ContainsKey("Index"))
@@ -65,19 +76,21 @@ namespace APBD31
                     }
                 }
                 await next();
-            } );
+            } );  */
+
             app.UseMiddleware<LoggingMiddleware>();
             app.UseDeveloperExceptionPage();
             app.UseRouting();
 
-            app.Use(async (context, c) =>
+           /* app.Use(async (context, c) =>
             {
                 context.Response.Headers.Add("Secret", "1234");
                 await c.Invoke();
             }
 
-            );
+            );*/
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

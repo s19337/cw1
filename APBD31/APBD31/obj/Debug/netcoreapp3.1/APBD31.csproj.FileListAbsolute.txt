@@ -194,6 +194,13 @@ C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\Desktop\ABPD+proj\APBD31\APBD31\obj\Debug\netcoreapp3.1\APBD31.MvcApplicationPartsAssemblyInfo.cache

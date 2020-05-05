@@ -14,6 +14,10 @@ namespace APBD31.Services
         Boolean IsStudentExist(String index);
         EnrollStudentResponse EnrollStudent(EnrollStudentRequest request);
         EnrollStudentResponse PromoteStudent(int semester, string studies);
+        Student foundStudent(LoginRequest request);
+        LoginRequest foundToken(String token);
+        void setToken(LoginRequest request, String token);
+
 
     }
 }

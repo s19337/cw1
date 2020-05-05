@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using APBD31.DTOs.Requests;
+﻿using APBD31.DTOs.Requests;
 using APBD31.DTOs.Responses;
-using APBD31.Models;
 using APBD31.Services;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APBD31.Controllers
@@ -23,6 +18,7 @@ namespace APBD31.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "employee")]
         public IActionResult EnrollStudent(EnrollStudentRequest request)
         {
             var response = new EnrollStudentResponse();
@@ -35,6 +31,7 @@ namespace APBD31.Controllers
         }
 
         [HttpPost("promotions")]
+        [Authorize(Roles = "employee")]
         public IActionResult PromoteStudent(int semester, string studies)
         {
             var response = new EnrollStudentResponse();

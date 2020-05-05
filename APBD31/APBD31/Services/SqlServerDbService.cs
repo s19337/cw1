@@ -166,5 +166,88 @@ namespace APBD31.Services
                 }
             }
         }
+
+        public Student foundStudent(LoginRequest request)
+        {
+            using (var con = new SqlConnection(ConString))
+            using (var com = new SqlCommand())
+            {
+                
+                var response = new EnrollStudentResponse();
+                com.Connection = con;
+                con.Open();
+
+                com.CommandText = "select * from student where indexNumber=@indexNumber and password=@password";
+                com.Parameters.AddWithValue("indexNumber", request.Login);
+                com.Parameters.AddWithValue("password", request.Password);
+
+
+                var dr = com.ExecuteReader();
+
+
+                if (dr.Read())
+                {
+                    var st = new Student();
+                    st.IndexNumber = dr["IndexNumber"].ToString();
+                    st.FirstName = dr["FirstName"].ToString();
+                    st.LastName = dr["LastName"].ToString();
+                    st.BirthDate = dr["BirthDate"].ToString();
+
+                    return st;
+                }
+                else return null;
+            }
+
+            }
+
+        public void setToken(LoginRequest request, string token)
+        {
+            using (var con = new SqlConnection(ConString))
+            using (var com = new SqlCommand())
+            {
+
+                var response = new EnrollStudentResponse();
+                com.Connection = con;
+                con.Open();
+
+                com.CommandText = "update student set token=@token where indexNumber=@indexNumber and password=@password";
+                com.Parameters.AddWithValue("indexNumber", request.Login);
+                com.Parameters.AddWithValue("password", request.Password);
+                com.Parameters.AddWithValue("token", token);
+                com.ExecuteNonQuery();
+            }
+
+            }
+
+        LoginRequest IStudentsDbService.foundToken(string token)
+        {
+            using (var con = new SqlConnection(ConString))
+            using (var com = new SqlCommand())
+            {
+
+                com.Connection = con;
+                con.Open();
+
+                com.CommandText = "select indexNumber, password from student where token=@token";
+                com.Parameters.AddWithValue("@token", @token);
+
+                var dr = com.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    var request = new LoginRequest();
+                    request.Login = dr["IndexNumber"].ToString();
+                    request.Password = dr["Password"].ToString();
+
+                    return request;
+                }
+                else return null;
+
+            }
+        }
+
+
+
+
     }
 }
